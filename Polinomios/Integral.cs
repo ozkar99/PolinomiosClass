@@ -48,19 +48,43 @@ namespace PolinomiosClass
         }
 
 
-        public double Trapezios()
+        public double Trapezios( )
         {
-            /*tomando N y h como numero de pasos y delta x calcular trapecios cool stuff podemos usar this.CaclculateEquation para sacar f(x)*/
-            double x = 0;
+            /*tomando N y h como numero de pasos y delta x calcular trapecios*/
+            /*cool stuff podemos usar this.CaclculateEquation para sacar f(x)*/
+            double res = 0;
+            double[] x = new double[N+1];
+            
+            for(int i=0; i<=this.N ; i++) 
+            {
 
-            return x;
+                //calculamos xi.
+                x[i] = limInf + (i*h);
+
+                
+                if (i==0 || i==N)
+                {
+                    //el primero y el ultimo.
+                    res += this.CalculateEquation(x[i]);
+                }
+                else
+                {
+                    //el resto multiplicado por 2.
+                    res += 2 * this.CalculateEquation(x[i]) ;
+                }
+            }
+            
+            //multiplicamos por h/2
+            res = res*(h/2);
+
+            return res;
         }
 
         public double Integrar()
         {
             /*esta funcion es un wrapper, tal como GetRoot es el wrapper en Roots.
              *probablemente (prob) solo saque lo que regresa trapezios*/
-            return this.Trapezios();
+            return this.Trapezios( );
         }
 
 
