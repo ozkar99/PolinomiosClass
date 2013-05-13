@@ -12,7 +12,7 @@ namespace PolinomiosClass
         public int limInf { get; set; } //limite inferior
         public int limSup { get; set; } //limite superior
         public int N { get; set; }
-        public int h { get; set; }
+        public double h { get; set; }
 
         /*constructores:*/
         public Integral() { }
@@ -46,7 +46,6 @@ namespace PolinomiosClass
             this.limSup = der;
 
         }
-
 
         public double Trapezios( )
         {
